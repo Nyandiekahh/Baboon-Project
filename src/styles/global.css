@@ -1,0 +1,71 @@
+:root {
+    --primary-color: #2c5530;
+    --secondary-color: #8b4513;
+    --accent-color: #ffd700;
+    --text-color: #333;
+    --light-text: #ffffff;
+    --overlay-color: rgba(0, 0, 0, 0.6);
+    --content-bg: #f4f1ea;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Common utility classes */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Common animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 1200px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }

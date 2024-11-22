@@ -1,38 +1,218 @@
-.App {
-  text-align: center;
+/* Base Styles */
+:root {
+  --primary-color: #2c5530;
+  --secondary-color: #8b4513;
+  --accent-color: #ffd700;
+  --text-color: #333;
+  --light-text: #ffffff;
+  --overlay-color: rgba(0, 0, 0, 0.6);
+  --content-bg: #f4f1ea;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
   min-height: 100vh;
+}
+
+/* Hero Section with Video */
+.hero-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+}
+
+/* Navigation */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.nav-menu ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--light-text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-menu li a:hover::after {
+  width: 80%;
+}
+
+/* Hero Content */
+.hero-section {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  color: var(--light-text);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-title {
+  font-size: 5rem;
+  margin: 0;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--light-text);
+  text-align: center;
+  animation: fadeInUp 2s infinite;
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--light-text);
+  border-radius: 15px;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.mouse::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--light-text);
+  border-radius: 2px;
+  animation: scrollMouse 2s infinite;
+}
+
+/* Main Content Section */
+.content-section {
+  background: var(--content-bg);
+  position: relative;
+  z-index: 1;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Rest of your existing styles for content sections */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Add more of your existing styles here... */
+
+/* Animations */
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes scrollMouse {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .main-title {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
   }
 }
+

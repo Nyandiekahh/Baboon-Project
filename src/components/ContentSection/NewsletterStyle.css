@@ -1,0 +1,196 @@
+/* Base Styles */
+:root {
+    --font-serif: "Petrona", Georgia, serif;
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --color-text: #1a1a1a;
+    --color-text-light: #666;
+    --color-border: #e0e0e0;
+    --max-width: 1200px;
+    --spacing-unit: 2rem;
+  }
+  
+  .newsletter {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: calc(var(--spacing-unit) * 2);
+    font-family: var(--font-serif);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--spacing-unit);
+  }
+  
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.25rem; }
+  
+  p {
+    margin: 0 0 var(--spacing-unit);
+    font-size: 1.125rem;
+  }
+  
+  /* Header Styles */
+  .newsletter-header {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+  
+  .newsletter-header h1 {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+  }
+  
+  .subheading {
+    font-style: italic;
+    color: var(--color-text-light);
+    padding: var(--spacing-unit) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  /* Grid Layout */
+  .article-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  
+  /* Lead Article */
+  .lead-article {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+  
+  .lead-paragraph::first-letter {
+    initial-letter: 3;
+    -webkit-initial-letter: 3;
+    color: var(--color-text);
+    font-weight: 700;
+    margin-right: 0.75rem;
+  }
+  
+  /* Research Section */
+  .research-section {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+  
+  .research-list {
+    list-style-type: disc;
+    padding-left: var(--spacing-unit);
+  }
+  
+  .research-list li {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    font-size: 1.125rem;
+  }
+  
+  /* Quotes */
+  .featured-quote {
+    text-align: center;
+    margin: calc(var(--spacing-unit) * 3) 0;
+    padding: calc(var(--spacing-unit) * 2) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .quote-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: var(--spacing-unit);
+    color: var(--color-text-light);
+  }
+  
+  .featured-quote blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: var(--spacing-unit);
+  }
+  
+  .featured-quote cite {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+  }
+  
+  .sidebar-quote {
+    border-left: 4px solid var(--color-text);
+    padding-left: var(--spacing-unit);
+    font-size: 1.25rem;
+    font-style: italic;
+    margin: var(--spacing-unit) 0;
+  }
+  
+  /* Environmental Section */
+  .environmental-section {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+  
+  .section-intro {
+    font-size: 1.25rem;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  
+  /* Footer */
+  .newsletter-footer {
+    text-align: center;
+    color: var(--color-text-light);
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    :root {
+      --spacing-unit: 1.5rem;
+    }
+  
+    .newsletter {
+      padding: var(--spacing-unit);
+    }
+  
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+  
+    .article-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-unit);
+    }
+  
+    .featured-quote blockquote {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .newsletter {
+      padding: 0;
+    }
+  
+    h1 { font-size: 24pt; }
+    h2 { font-size: 20pt; }
+    h3 { font-size: 16pt; }
+    
+    .featured-quote {
+      break-inside: avoid;
+    }
+  }
+  
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text: #f0f0f0;
+      --color-text-light: #a0a0a0;
+      --color-border: #404040;
+    }
+    
+    body {
+      background-color: #121212;
+    }
+  }
