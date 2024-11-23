@@ -6,6 +6,8 @@
     --light-text: #ffffff;
     --overlay-color: rgba(0, 0, 0, 0.6);
     --content-bg: #f4f1ea;
+    --background-dark: #2c5530;
+    --loader-color: #ffd700;
   }
   
   * {
